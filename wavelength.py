@@ -18,6 +18,22 @@ class WavelengthApp(customtkinter.CTk):
         self.title("Wavelength")
         self.geometry("400x240")
 
+        self.grid_columnconfigure(1, weight=1)
+        self.grid_columnconfigure((2, 3), weight=0)
+        self.grid_rowconfigure((0, 1, 2), weight=1)
+
+        self.sidebar_frame = customtkinter.CTkFrame(self, width=140, corner_radius=0)
+        self.sidebar_frame.grid(row=0, column=0, rowspan=4, sticky="nsew")
+        self.sidebar_frame.grid_rowconfigure(4, weight=1)
+
+        self.appearance_mode_optionmenu = customtkinter.CTkOptionMenu(self.sidebar_frame,
+                                                                       values=["System","Light", "Dark"],
+                                                                       command=self.change_appearance_mode_event)
+        self.appearance_mode_optionmenu.grid(row=6, column=0, padx=20, pady=(10, 10))
+
+    def change_appearance_mode_event(self, new_appearance_mode: str):
+        customtkinter.set_appearance_mode(new_appearance_mode)
+
 
 if __name__ == "__main__":
     app = WavelengthApp()
