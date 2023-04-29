@@ -2,13 +2,14 @@
 from PyInstaller.utils.hooks import collect_data_files
 
 gui_packages = collect_data_files('customtkinter') + collect_data_files('CTkMessagebox')
+res = [('res', 'res')]
 block_cipher = None
 
 a = Analysis(
     ['wavelength.py'],
     pathex=[],
     binaries=[],
-    datas=[('.\\venv\\Lib\\site-packages\\customtkinter', 'customtkinter')] + gui_packages,
+    datas=[('.\\venv\\Lib\\site-packages\\customtkinter', 'customtkinter')] + res + gui_packages,
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
