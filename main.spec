@@ -6,7 +6,7 @@ res = [('res', 'res')]
 block_cipher = None
 
 a = Analysis(
-    ['wavelength.py'],
+    ['src/main.py'],
     pathex=[],
     binaries=[],
     datas=[('.\\venv\\Lib\\site-packages\\customtkinter', 'customtkinter')] + res + gui_packages,
